@@ -143,7 +143,10 @@ public class PatientService {
                 newUsers.add(newUser);
             }
         }
-        log.info("Количество новых пользователей добавленных в систему: {}", newUsers.size());
+        int newUsersCount = newUsers.size();
+        if (newUsersCount > 0) {
+            log.info("Количество новых пользователей добавленных в систему: {}", newUsersCount);
+        }
         companyUserRepository.saveAll(newUsers);
         allUsers.addAll(newUsers);
 
